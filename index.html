@@ -57,6 +57,6 @@ void Meragesort(T * arr, int left, int right) { <br />
 		根据主定理 : T(n) = kT(n / m) + f(n)中, f(n) = n ^ d, d >= 0
 		则 时间复杂度是 O(nlogn).(出自视频 <a href = "https://www.bilibili.com/video/BV1GT4y1G75V/" target = "_blank">归并视频及时间复杂度</a> <br /></pre>
 	<pre>总结 : &#9;&#9;归并排序是一种非就地排序，将需要与待排序序列一样多的辅助空间。在使用它对两个己有序的序列归并，将有无比的优势。
-			其时间复杂度无论是在最好情况下还是在最坏情况下均是O(nlog2n).
-			对数据的有序性不敏感。若数据节点数据量大，那将不适合。
-			但可改造成索引操作，效果将非常出色。(出CSDN @会飞的鱼_fly <a href = "https://blog.csdn.net/u011244839/article/details/69959943/" target = "_blank"> emragesort优点 </a> <br /> </pre>
+		其时间复杂度无论是在最好情况下还是在最坏情况下均是O(nlog2n).
+		对数据的有序性不敏感。若数据节点数据量大，那将不适合。
+		但可改造成索引操作，效果将非常出色。(出CSDN @会飞的鱼_fly <a href = "https://blog.csdn.net/u011244839/article/details/69959943/" target = "_blank"> emragesort优点 </a> <br /> </pre>
