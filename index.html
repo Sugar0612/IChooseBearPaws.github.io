@@ -1,18 +1,14 @@
-ome to my algorithmic learning home page! <br />
+Welcome to my algorithmic learning home page! <br />
 
 <pre>我的Github : <a href = "https://github.com/IChooseBearPaws/" target = "_blank"> My Github </a> <br />
 <pre>我的LeetCode : <a href = "https://leetcode-cn.com/u/allac_1/" target = "_blank"> My Leetcode </a> <br /> </pre>
 
 #pragma once <br />
-
-<br />
-	Merge sort (Divide and conquer algorithm)
-<br />
-
+Merge sort (Divide and conquer algorithm)<br />
 归并排序 动画展示: <a href = "https://www.bilibili.com/video/BV1AJ41167VK?from=search&seid=2883332805467242330/" target = "_blank">访问动画</a> <br />
 
  代码 :<br /> 
-template <class T> <br />
+template &lt;class T> &gt; <br />
 <pre>
 void Meragesort(T * arr, int left, int right) { <br />
 	&#9;if (left == righ) return;<br />
@@ -35,9 +31,9 @@ void Meragesort(T * arr, int left, int right) { <br />
 }<br /></pre>
 	<pre>
 	&#9;原理 :  1.利用分治算法, 将数组 arr[] 形成两个序列 arr_1(n / 2) 和 arr_2(n / 2)一直递归分解, 直到每个序列只包含一个 / 两个元素<br />
-			&#9;2.形成两个数组a[], b[], 对两个数组的第一个元素进行比较, 较小的放到临时创建的数组 buff[] 中, 当其中一个数组 a[] / b[] 已经将所有元素放入了 buff[]中,<br />
+			2.形成两个数组a[], b[], 对两个数组的第一个元素进行比较, 较小的放到临时创建的数组 buff[] 中, 当其中一个数组 a[] / b[] 已经将所有元素放入了 buff[]中,<br />
 			&nbsp;那么将剩下没有放完的数组 (b[] / a[]) 的剩余元素依次放进 buff[] 数组中去.<br />
-			&#9;3.重复第二步 直到排序完毕.<br /> </pre>
+			3.重复第二步 直到排序完毕.<br /> </pre>
 <br />
 	<pre>举例:
 		 &#9;arr[] = {8, 5, 1, 6, 2, 4, 9};<br />
@@ -57,12 +53,12 @@ void Meragesort(T * arr, int left, int right) { <br />
  <br />
  <br />
 	<pre>&#9;算法分析:
-		&#9;假设n > 1 : 时间是T(n) 那么两个就是 2T(2 / n) 合并算法时间是 O(n) <br />
-		    n = 1 : O(1). <br /></pre>
+		假设n > 1 : 时间是T(n) 那么两个就是 2T(2 / n) 合并算法时间是 O(n) <br />
+		 n = 1 : O(1). <br /></pre>
 	
 <pre>			根据主定理 : T(n) = kT(n / m) + f(n)中, f(n) = n ^ d, d >= 0 <br />
-			则 时间复杂度是 O(nlogn).<出自借鉴百度> <br /></pre>
-	<pre>总结 : &#9;&#9;归并排序是一种非就地排序，将需要与待排序序列一样多的辅助空间。在使用它对两个己有序的序列归并，将有无比的优势。 <br />
+			则 时间复杂度是 O(nlogn).(出自视频 <a href = "https://www.bilibili.com/video/BV1GT4y1G75V/" target = "_blank">归并视频及时间复杂度</a> <br /></pre>
+	<pre>总结 : &#9;&#9;&#9;归并排序是一种非就地排序，将需要与待排序序列一样多的辅助空间。在使用它对两个己有序的序列归并，将有无比的优势。 <br />
 			其时间复杂度无论是在最好情况下还是在最坏情况下均是O(nlog2n)。 <br />
 			对数据的有序性不敏感。若数据节点数据量大，那将不适合。 </pre>
 			<pre>&#9;&#9;但可改造成索引操作，效果将非常出色。(出CSDN @会飞的鱼_fly <a href = "https://blog.csdn.net/u011244839/article/details/69959943/" target = "_blank"> emragesort优点 </a> <br /> </pre>
