@@ -174,7 +174,7 @@ public:
 	/** Returns if the word is in the trie. */
 	bool search(string word) {
 		TrieNode* p = find(word);
-		return p && p->is_word;
+		return p &amp;&amp; p->is_word;
 	}
 
 	/** Returns if there is any word in the trie that starts with the given prefix. */
@@ -190,11 +190,11 @@ private:
 				if (p) delete p;
 			}
 		}
-		vector <TrieNode*> child;
+		vector &lt;TrieNode*&gt; child;
 		bool is_word;   // 代表他是一个完整的单词(true) 否则不然
 	};
 
-	TrieNode* find(const string& prefix) {
+	TrieNode* find(const string&amp; prefix) {
 		TrieNode* p = root_.get();
 		for (auto charr : prefix) {
 			p = p->child[charr - 'a'];
@@ -202,5 +202,5 @@ private:
 		}
 		return p;
 	}
-	std::unique_ptr<TrieNode> root_;  //智能指针 可以自动析构
+	std::unique_ptr&lt;TrieNode&gt; root_;  //智能指针 可以自动析构
 };
