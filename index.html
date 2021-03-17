@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style.css">
 <div class="limite">
 <div class="box">
 	<title>My algorithmic learning home page! <br /> </title>
@@ -15,7 +15,7 @@
 <pre2>我的LeetCode : <a href = "https://leetcode-cn.com/u/allac_1/" target = "_blank"> My Leetcode </a></pre2> <br /><br />
 <day>  2020 年 12 月 10 日</day> <br />
 <merge>Merge sort (Divide and conquer algorithm) </merge><br />
-<per6>归并排序 动画展示: <a href = "https://www.bilibili.com/video/BV1AJ41167VK?from=search&seid=2883332805467242330/" target = "_blank">访问动画</a><br /></per6>
+<pre6>归并排序 动画展示: <a href = "https://www.bilibili.com/video/BV1AJ41167VK?from=search&seid=2883332805467242330/" target = "_blank">访问动画</a><br /></pre6>
 <div class="boxx">
 <pre5>代码: </pre5>
     <strong>#pragma once
@@ -54,13 +54,14 @@
 	对数据的有序性不敏感。若数据节点数据量大，那将不适合。
 	但可改造成索引操作，效果将非常出色。(出CSDN @会飞的鱼_fly <a href = "https://blog.csdn.net/u011244839/article/details/69959943/" target = "_blank"> emragesort优点 </a> <br /></pre>
 </pre3>
-<pre> 2021 年 1 月 17 日 </pre>
-<pre>//  Union Find
-//并查集动画 :  <a href = "https://www.bilibili.com/video/BV1yE411u7FD?p=21" target = "_blank"> 并查集动画 </a>
-//并查集讲解:   <a href = "https://www.bilibili.com/video/BV1qK411J7J6?from=search&seid=14834253158345534002" target = "_blank"> 并查集教学 </a>
+<pre6> 2021 年 1 月 17 日 </pre6> <br />
+<pre6>//  Union Find <br />
+//并查集动画 :  <a href = "https://www.bilibili.com/video/BV1yE411u7FD?p=21" target = "_blank"> 并查集动画 </a><br />
+//并查集讲解:   <a href = "https://www.bilibili.com/video/BV1qK411J7J6?from=search&seid=14834253158345534002" target = "_blank"> 并查集教学 </a> <br />
 // 并查集是 用于关于图的两个结点连通性问题 一个很经典的一个解法
-// 代码可读性高, 时间复杂度只有 O(1), 空间复杂度 O(n); </pre>
+// 代码可读性高, 时间复杂度只有 O(1), 空间复杂度 O(n); </pre6>
 <strong><pre>
+    <div class="boxx">
     class UF {
     private:
         vector&lt;int> par;
@@ -75,9 +76,11 @@
             return par[x] = x == par[x] ? x : find(par[x]);
         }
 
-        // 对于 union find的 find函数 最初的写法 有 return x == par[x] ? x : find(par[x]); 如果是这样查询 那么最坏的结果是查询一个链表 
-        // 他的时间复杂度将会是 O(n), 而 如果写成 return par[x] = x == par[x] ? x : find(par[x]); 那么 他将变成 一棵深度为二的一棵树, 
-        // 那么 当第二次查询的时候 他的时间复杂度 可以降到 O(1) 这个是非常好的 
+        // 对于 union find的 find函数 最初的写法 有 return x == par[x] ? x : find(par[x]); 
+           如果是这样查询 那么最坏的结果是查询一个链表 
+        // 他的时间复杂度将会是 O(n), 而 如果写成 return par[x] = x == par[x] ? x : find(par[x]); 
+           那么 他将变成 一棵深度为二的一棵树, 
+        // 那么 当第二次查询的时候 他的时间复杂度 可以降到 O(1)
 
         void merge(int x, int y) {
             int fx = find(x), fy = find(y);
@@ -85,18 +88,20 @@
                 par[find(y)] = find(x);
             }
         }
-    };</strong>
-
+    };</strong> </div>
+<pre6>
 //以上就是 关于并查集 Union Find 的基本模板
 
 //关于 Union Find 例题 (来自于 Leetcode 684 冗余连接(mid)) <a href = "https://leetcode-cn.com/classic/problems/redundant-connection/description/" target = "_blank"> 冗余连接 </a>
 	//输入一个图，该图由一个有着N个节点 (节点值不重复1, 2, ..., N) 的树及一条附加的边构成。附加的边的两个顶点包含在1到N中间，这条附加的边不属于树中已存在的边。
 	//结果图是一个以边组成的二维数组。每一个边的元素是一对[u, v] ，满足 u &lt; v，表示连接顶点u 和v的无向图的边。
 	//返回一条可以删去的边，使得结果图是一个有着N个节点的树。如果有多个答案，则返回二维数组中最后出现的边。答案边[u, v] 应满足相同的格式 u &lt; v。
+</pre6>
 
-<pre>2021 年 2 月 17 日</pre>
-<pre>字典树教学: <a href = "https://www.bilibili.com/video/BV1Az4y1S7c7?from=search&seid=7439230436454907529" target="_blank"> 字典树 </a> <br/>
-字典树模板
+<pre6>2021 年 2 月 17 日</pre6>
+<pre6>字典树教学: <a href = "https://www.bilibili.com/video/BV1Az4y1S7c7?from=search&seid=7439230436454907529" target="_blank"> 字典树 </a> <br/>
+字典树模板</pre6>
+<div class="boxx">
 <strong>  class Trie {
     public:
         /** Initialize your data structure here. */
@@ -145,7 +150,7 @@
             return p;
         }
         std::unique_ptr&lt;TrieNode&gt; root_;  //智能指针 可以自动析构
-    };</pre> </strong>
+    };</pre> </strong> </div>
     </div>
 </div>
 </body>
