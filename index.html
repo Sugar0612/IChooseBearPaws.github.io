@@ -1,17 +1,25 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+<div class="limite">
+<div class="box">
 	<title>My algorithmic learning home page! <br /> </title>
 </head>
     <h1>Welcome to my algorithmic learning home page!</h1>
 <body>
-<pre>我的Github : <a href = "https://github.com/IChooseBearPaws/" target = "_blank"> My Github </a>
-<pre>我的LeetCode : <a href = "https://leetcode-cn.com/u/allac_1/" target = "_blank"> My Leetcode </a></pre>
-<pre>  2020 年 12 月 10 日</pre>
-Merge sort (Divide and conquer algorithm)
-归并排序 动画展示: <a href = "https://www.bilibili.com/video/BV1AJ41167VK?from=search&seid=2883332805467242330/" target = "_blank">访问动画</a> <br />
-代码 : 
+<pre1>我的Github : <a href = "https://github.com/IChooseBearPaws/" target = "_blank"> My Github </a></pre1><br />
+<pre2>我的LeetCode : <a href = "https://leetcode-cn.com/u/allac_1/" target = "_blank"> My Leetcode </a></pre2> <br /><br />
+<day>  2020 年 12 月 10 日</day> <br />
+<merge>Merge sort (Divide and conquer algorithm) </merge><br />
+<per6>归并排序 动画展示: <a href = "https://www.bilibili.com/video/BV1AJ41167VK?from=search&seid=2883332805467242330/" target = "_blank">访问动画</a><br /></per6>
+<div class="boxx">
+<pre5>代码: </pre5>
     <strong>#pragma once
-    template &lt;class T> &gt;
+    template &lt;class T&gt;
 <pre>
     void Meragesort(T * arr, int left, int right) {
         if (left == righ) return;
@@ -29,10 +37,13 @@ Merge sort (Divide and conquer algorithm)
         }
         int index_ = 0;
         for (int i = left, i &lt;= right; ++i) arr[i] = ret[index_++];
-    }</strong>
-原理: 1.利用分治算法, 将数组 arr[] 形成两个序列 arr_1(n / 2) 和 arr_2(n / 2)一直递归分解, 直到每个序列只包含一个 / 两个元素<br />
-       	2.形成两个数组a[], b[], 对两个数组的第一个元素进行比较, 较小的放到临时创建的数组 buff[] 中, 当其中一个数组 a[] / b[] 已经将所有元素放入了 buff[]中,那么将剩下没有放完的数组 (b[] / a[]) 的剩余元素依次放进 buff[] 数组中去.<br />
-	 3.重复第二步 直到排序完毕.<br /></pre>
+    }</strong><pre>
+    </div>
+<pre3>
+原理: <br />1.利用分治算法, 将数组 arr[] 形成两个序列 arr_1(n / 2) 和 arr_2(n / 2)一直递归分解, 直到每个序列只包含一个 / 两个元素<br />
+       	2.形成两个数组a[], b[], 对两个数组的第一个元素进行比较, 较小的放到临时创建的数组 buff[] 中, 当其中一个数组 a[] / b[] 已经将所有元素放入了 buff[]中,
+          那么将剩下没有放完的数组 (b[] / a[]) 的剩余元素依次放进 buff[] 数组中去.<br />
+	 3.重复第二步 直到排序完毕.<br />
     <pre>算法分析:
 	   假设n > 1 : 时间是T(n) 那么两个就是 2T(2 / n) 合并算法时间是 O(n)   n = 1 : O(1).
 	   根据主定理 : T(n) = kT(n / m) + f(n)中, f(n) = n ^ d, d >= 0
@@ -42,6 +53,7 @@ Merge sort (Divide and conquer algorithm)
 	其时间复杂度无论是在最好情况下还是在最坏情况下均是O(nlog2n).
 	对数据的有序性不敏感。若数据节点数据量大，那将不适合。
 	但可改造成索引操作，效果将非常出色。(出CSDN @会飞的鱼_fly <a href = "https://blog.csdn.net/u011244839/article/details/69959943/" target = "_blank"> emragesort优点 </a> <br /></pre>
+</pre3>
 <pre> 2021 年 1 月 17 日 </pre>
 <pre>//  Union Find
 //并查集动画 :  <a href = "https://www.bilibili.com/video/BV1yE411u7FD?p=21" target = "_blank"> 并查集动画 </a>
@@ -134,4 +146,7 @@ Merge sort (Divide and conquer algorithm)
         }
         std::unique_ptr&lt;TrieNode&gt; root_;  //智能指针 可以自动析构
     };</pre> </strong>
+    </div>
+</div>
 </body>
+</html>
