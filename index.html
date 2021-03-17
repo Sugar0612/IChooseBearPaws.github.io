@@ -1,99 +1,79 @@
+<!DOCTYPE html>
 <head>
 	<title>My algorithmic learning home page! <br /> </title>
 </head>
     <h1>Welcome to my algorithmic learning home page!</h1>
 <body>
 <pre>我的Github : <a href = "https://github.com/IChooseBearPaws/" target = "_blank"> My Github </a>
-<pre>我的LeetCode : <a href = "https://leetcode-cn.com/u/allac_1/" target = "_blank"> My Leetcode </a> <br /> </pre>
+<pre>我的LeetCode : <a href = "https://leetcode-cn.com/u/allac_1/" target = "_blank"> My Leetcode </a></pre>
 <pre>  2020 年 12 月 10 日</pre>
-Merge sort (Divide and conquer algorithm)<br />
+Merge sort (Divide and conquer algorithm)
 归并排序 动画展示: <a href = "https://www.bilibili.com/video/BV1AJ41167VK?from=search&seid=2883332805467242330/" target = "_blank">访问动画</a> <br />
-
-代码 :<br /> 
-#pragma once <br />
-template &lt;class T> &gt; <br />
+代码 : 
+    <strong>#pragma once
+    template &lt;class T> &gt;
 <pre>
-void Meragesort(T * arr, int left, int right) { <br />
-	&#9;if (left == righ) return;<br />
+    void Meragesort(T * arr, int left, int right) {
+        if (left == righ) return;
+        int mid = (left + right) / 2;
+        Meragesort(arr, left, mid);       // 左排序
+        Meragesort(arr, mid + 1, right); //右排序 <br />
+        int ret[right - left + 1];
+        int begin = left, end = mid + 1;
+        int index = 0;
+        while (begin &lt;= left || end &lt;= right) {
+            if (begin &gt; left) ret[index++] = arr[right++];
+            else if (end &gt; right) ret[index++] = arr[left++];
+            else if (arr[begin] &lt; arr[left]) ret[index++] = arr[begin++];
+                else ret[index++] = arr[end++];
+        }
+        int index_ = 0;
+        for (int i = left, i &lt;= right; ++i) arr[i] = ret[index_++];
+    }</strong>
+原理: 1.利用分治算法, 将数组 arr[] 形成两个序列 arr_1(n / 2) 和 arr_2(n / 2)一直递归分解, 直到每个序列只包含一个 / 两个元素<br />
+       	2.形成两个数组a[], b[], 对两个数组的第一个元素进行比较, 较小的放到临时创建的数组 buff[] 中, 当其中一个数组 a[] / b[] 已经将所有元素放入了 buff[]中,那么将剩下没有放完的数组 (b[] / a[]) 的剩余元素依次放进 buff[] 数组中去.<br />
+	 3.重复第二步 直到排序完毕.<br /></pre>
+    <pre>算法分析:
+	   假设n > 1 : 时间是T(n) 那么两个就是 2T(2 / n) 合并算法时间是 O(n)   n = 1 : O(1).
+	   根据主定理 : T(n) = kT(n / m) + f(n)中, f(n) = n ^ d, d >= 0
+	   则 时间复杂度是 O(nlogn).(出自视频 <a href = "https://www.bilibili.com/video/BV1GT4y1G75V/" target = "_blank">归并视频及时间复杂度</a></pre>
 
-	&#9;int mid = (left + right) / 2;<br />
-	&#9;Meragesort(arr, left, mid);       // 左排序<br />
-	&#9;Meragesort(arr, mid + 1, right); //右排序<br />
-	<br />
-	&#9;int ret[right - left + 1];<br />
-	&#9;int begin = left, end = mid + 1;<br />
-	&#9;int index = 0;<br />
-	&#9;while (begin &lt;= left || end &lt;= right) {<br />
-		&#9;&#9;if (begin &gt; left) ret[index++] = arr[right++];<br />
-		&#9;&#9;else if (end &gt; right) ret[index++] = arr[left++];<br />
-		&#9;&#9;else if (arr[begin] &lt; arr[left]) ret[index++] = arr[begin++];<br />
-		&#9;&#9;else ret[index++] = arr[end++];<br />
-	&#9;}<br />
-	&#9;int index_ = 0;<br />
-	&#9;for (int i = left, i &lt;= right; ++i) arr[i] = ret[index_++];<br />
-}<br /></pre>
-	<pre>
-原理 :  1.利用分治算法, 将数组 arr[] 形成两个序列 arr_1(n / 2) 和 arr_2(n / 2)一直递归分解, 直到每个序列只包含一个 / 两个元素<br />
-       	2.形成两个数组a[], b[], 对两个数组的第一个元素进行比较, 较小的放到临时创建的数组 buff[] 中, 当其中一个数组 a[] / b[] 已经将所有元素放入了 buff[]中,<br />
-	&nbsp;那么将剩下没有放完的数组 (b[] / a[]) 的剩余元素依次放进 buff[] 数组中去.<br />
-	3.重复第二步 直到排序完毕.<br /> </pre>
-<br />
-	<pre>举例:
-		 arr[] = {8, 5, 1, 6, 2, 4, 9};<br />
-		 先将arr[] 分成 [8, 5, 1] 与 [6, 2, 4, 9]<br />
-		 然后将[8, 5, 1] 分成 [8] 与 [5, 1]<br />
-		 这时 [8] 中 left == right 无法在分割了 return<br />
-		 然后到了 [5, 1]<br />
-		 将[5. 1] 可以分成 a[] = [5] 与 b[] = [1], 显而易见, [5]和[1] 也没有办法分割<br />
-		 返回到了 [5, 1]中, [5 , 1]中的meragesort(left, mid) 以及 meragesort(mid + 1, right) 全部完成<br />
-		 将其归并排序,显然 1 &lt; 5, 这样就变成了 [1, 5] return; <br />
-		 回到了[8, 5, 1], 此时已变成 [8, 1, 5], 并且 [8, 1, 5]中 meragesort(left, mid) 以及 meragesort(mid + 1, right) 全部完成 <br />
-		 将其排序, a[] = {8} 与 b[] = {1, 5} 这两个数组首元素开始比较, 1 &lt; 8 就将 1 放入 buff[] 中 <br />
-		 然后 5 &lt; 8, 再将 5放入 buff[]中, 这样b[] 数组全部遍历完成, 将a[] = {8} 依次放入 buff[] 中 <br />
-		 这样 buff[] = {1, 5, 8}, arr[]的 meragesort(left, mid) 就已经排序完毕下来再按上述方法 对 meragesort(mid + 1, right)进行排列 <br />
-		 最后得到一个 由小到大排列的数组 [1, 2, 4, 5, 6, 8, 9] <br /> </pre>
- <br />
- <br />
-	<pre>算法分析:
-	         假设n > 1 : 时间是T(n) 那么两个就是 2T(2 / n) 合并算法时间是 O(n)
-		 &nbsp;&nbsp;n = 1 : O(1).
-		根据主定理 : T(n) = kT(n / m) + f(n)中, f(n) = n ^ d, d >= 0
-		则 时间复杂度是 O(nlogn).(出自视频 <a href = "https://www.bilibili.com/video/BV1GT4y1G75V/" target = "_blank">归并视频及时间复杂度</a> <br /></pre>
-	<pre>总结 : &#9;&#9;归并排序是一种非就地排序，将需要与待排序序列一样多的辅助空间。在使用它对两个己有序的序列归并，将有无比的优势。
-		其时间复杂度无论是在最好情况下还是在最坏情况下均是O(nlog2n).
-		对数据的有序性不敏感。若数据节点数据量大，那将不适合。
-		但可改造成索引操作，效果将非常出色。(出CSDN @会飞的鱼_fly <a href = "https://blog.csdn.net/u011244839/article/details/69959943/" target = "_blank"> emragesort优点 </a> <br /> </pre>
+<pre>总结:   归并排序是一种非就地排序，将需要与待排序序列一样多的辅助空间。在使用它对两个己有序的序列归并，将有无比的优势。
+	其时间复杂度无论是在最好情况下还是在最坏情况下均是O(nlog2n).
+	对数据的有序性不敏感。若数据节点数据量大，那将不适合。
+	但可改造成索引操作，效果将非常出色。(出CSDN @会飞的鱼_fly <a href = "https://blog.csdn.net/u011244839/article/details/69959943/" target = "_blank"> emragesort优点 </a> <br /></pre>
 <pre> 2021 年 1 月 17 日 </pre>
 <pre>//  Union Find
 //并查集动画 :  <a href = "https://www.bilibili.com/video/BV1yE411u7FD?p=21" target = "_blank"> 并查集动画 </a>
 //并查集讲解:   <a href = "https://www.bilibili.com/video/BV1qK411J7J6?from=search&seid=14834253158345534002" target = "_blank"> 并查集教学 </a>
 // 并查集是 用于关于图的两个结点连通性问题 一个很经典的一个解法
 // 代码可读性高, 时间复杂度只有 O(1), 空间复杂度 O(n); </pre>
-<pre>class UF {
-private:</pre>
-<pre>	vector <int>par;
-public
-	UF(int n) : par(n) {
-		for (int i = 0; i < n; ++i) {
-			par[i] = i;
-		}
-	}
+<strong><pre>
+    class UF {
+    private:
+        vector&lt;int> par;
+    public:
+        UF(int n) : par(n) {
+            for (int i = 0; i &lt; n; ++i) {
+                par[i] = i;
+            }
+        }
 
-	int find(int x) {
-		return par[x] = x == par[x] ? x : find(par[x]);
-	}
+        int find(int x) {
+            return par[x] = x == par[x] ? x : find(par[x]);
+        }
 
-	// 对于 union find的 find函数 最初的写法 有 return x == par[x] ? x : find(par[x]); 如果是这样查询 那么最坏的结果是查询一个链表 
-	// 他的时间复杂度将会是 O(n), 而 如果写成 return par[x] = x == par[x] ? x : find(par[x]); 那么 他将变成 一棵深度为二的一棵树, 
-	// 那么 当第二次查询的时候 他的时间复杂度 可以降到 O(1) 这个是非常好的 
+        // 对于 union find的 find函数 最初的写法 有 return x == par[x] ? x : find(par[x]); 如果是这样查询 那么最坏的结果是查询一个链表 
+        // 他的时间复杂度将会是 O(n), 而 如果写成 return par[x] = x == par[x] ? x : find(par[x]); 那么 他将变成 一棵深度为二的一棵树, 
+        // 那么 当第二次查询的时候 他的时间复杂度 可以降到 O(1) 这个是非常好的 
 
-	void merge(int x, int y) {
-		int fx = find(x), fy = find(y);
-		if (find(x) != find(y)) {
-			par[find(y)] = find(x);
-		}
-	}
-};
+        void merge(int x, int y) {
+            int fx = find(x), fy = find(y);
+            if (find(x) != find(y)) {
+                par[find(y)] = find(x);
+            }
+        }
+    };</strong>
 
 //以上就是 关于并查集 Union Find 的基本模板
 
@@ -101,110 +81,57 @@ public
 	//输入一个图，该图由一个有着N个节点 (节点值不重复1, 2, ..., N) 的树及一条附加的边构成。附加的边的两个顶点包含在1到N中间，这条附加的边不属于树中已存在的边。
 	//结果图是一个以边组成的二维数组。每一个边的元素是一对[u, v] ，满足 u &lt; v，表示连接顶点u 和v的无向图的边。
 	//返回一条可以删去的边，使得结果图是一个有着N个节点的树。如果有多个答案，则返回二维数组中最后出现的边。答案边[u, v] 应满足相同的格式 u &lt; v。
-//示例一 : 
-	//输入: [[1,2], [1,3], [2,3]]
-	//输出: [2, 3]
-	//解释 : 给定的无向图为 :
-	//	 1
-	//	/ \
-	//     2 - 3
-//思路解答: 对于这种无向图问题, 我们可以抽象成, 图的两个结点连通问题, 那么我们的思路就是: 去遍历整个图, 如果一个点的 x与y, 他们的find(x) != find(y) 那么将他们merge在一起,
-//此时 他们将会拥有共同的祖先, 如果 一个点 他们的 x与y 的祖先相同(find(x) == find(y)) 那么把他们记录在 ans 中.
 
-//代码: 
-
-/*class Solution {
-public:
-    vector&lt;int> findRedundantConnection(vector<vector&lt;int>>&amp; edges) {
-		int size = 0;
-		for (auto v :edges) {
-			for (auto val :v) size = max(size, val);
-		}
-		UF uf_(size + 1);
-        vector <int > ans;
-        for (auto&amp; ve : edges) {
-            if (uf_.find(ve[0]) != uf_.find(ve[1])) {
-                uf_.merge(ve[0], ve[1]);
-                continue;
-            }
-            ans.emplace_back(ve[0]);
-            ans.emplace_back(ve[1]);
-            break;
-        }
-        return ans;
-    }
-private: 
-	class UF {
-	private:
-		vector <int>par;
-	public:
-		UF(int n) : par(n) {
-			for (int i = 0; i < n; ++i) {
-				par[i] = i;
-			}
-		}
-		int find(int x) {
-			return par[x] = x == par[x] ? x : find(par[x]);
-		}
-		void merge(int x, int y) {
-			int fx = find(x), fy = find(y);
-			if (find(x) != find(y)) {
-				par[find(y)] = find(x);
-			}
-		}
-	};
-};*/   //时间复杂度O(n),空间复杂度 O(n);
-
-2021 年 2 月 17 日
-字典树教学: <a href = "https://www.bilibili.com/video/BV1Az4y1S7c7?from=search&seid=7439230436454907529" target="_blank"> 字典树 </a> <br/>
+<pre>2021 年 2 月 17 日</pre>
+<pre>字典树教学: <a href = "https://www.bilibili.com/video/BV1Az4y1S7c7?from=search&seid=7439230436454907529" target="_blank"> 字典树 </a> <br/>
 字典树模板
-class Trie {
-public:
-	/** Initialize your data structure here. */
-	Trie() : root_(new TrieNode()) {}
+<strong>  class Trie {
+    public:
+        /** Initialize your data structure here. */
+        Trie() : root_(new TrieNode()) {}
 
-	/** Inserts a word into the trie. */
-	void insert(string word) {
-		TrieNode* p = root_.get();
-		for (char c : word) {
-			if (!p->child[c - 'a'])
-				p->child[c - 'a'] = new TrieNode();
-			p = p->child[c - 'a'];
-		}
-		p->is_word = true;
-	}
+        /** Inserts a word into the trie. */
+        void insert(string word) {
+            TrieNode* p = root_.get();
+            for (char c : word) {
+                if (!p->child[c - 'a'])
+                    p->child[c - 'a'] = new TrieNode();
+                p = p->child[c - 'a'];
+            }
+            p->is_word = true;
+        }
 
-	/** Returns if the word is in the trie. */
-	bool search(string word) {
-		TrieNode* p = find(word);
-		return p &amp;&amp; p->is_word;
-	}
+        /** Returns if the word is in the trie. */
+        bool search(string word) {
+            TrieNode* p = find(word);
+            return p &amp;&amp; p->is_word;
+        }
 
-	/** Returns if there is any word in the trie that starts with the given prefix. */
-	bool startsWith(string prefix) {
-		return find(prefix) != nullptr;
-	}
-private:
-	class TrieNode {
-	public:
-		TrieNode() : is_word(false), child(26, nullptr) {}
-		~TrieNode() {
-			for (TrieNode* p : child) {
-				if (p) delete p;
-			}
-		}
-		vector &lt;TrieNode*&gt; child;
-		bool is_word;   // 代表他是一个完整的单词(true) 否则不然
-	};
+        /** Returns if there is any word in the trie that starts with the given prefix. */
+        bool startsWith(string prefix) {
+            return find(prefix) != nullptr;
+        }
+    private:
+        class TrieNode {
+        public:
+            TrieNode() : is_word(false), child(26, nullptr) {}
+            ~TrieNode() {
+                for (TrieNode* p : child) {
+                    if (p) delete p;
+                }
+            }
+            vector &lt;TrieNode*&gt; child;
+            bool is_word;   // 代表他是一个完整的单词(true) 否则不然
+        };
 
-	TrieNode* find(const string&amp; prefix) {
-		TrieNode* p = root_.get();
-		for (auto charr : prefix) {
-			p = p->child[charr - 'a'];
-			if (nullptr == p) break;
-		}
-		return p;
-	}
-	std::unique_ptr&lt;TrieNode&gt; root_;  //智能指针 可以自动析构
-};
+        TrieNode* find(const string&amp; prefix) {
+            TrieNode* p = root_.get();
+            for (auto charr : prefix) {
+                p = p->child[charr - 'a'];
+                if (nullptr == p) break;
+            }
+            return p;
+        }
+        std::unique_ptr&lt;TrieNode&gt; root_;  //智能指针 可以自动析构
+    };</pre> </strong>
 </body>
