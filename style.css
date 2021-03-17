@@ -67,6 +67,67 @@
     font-style: italic;
 }
 
+.box pre6{
+    font-family: KaiTi;
+}
+
+.limite {
+    width: 100%;
+    margin: auto;
+}
+
+.box day {
+    text-align: center;
+    font-family: KaiTi;
+}
+.box h1 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+    font-style: italic;
+    /* text-decoration: underline; */
+}
+.box pre1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.box pre2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.box pre3{
+    font-family: KaiTi;
+    font-style: initial;
+    font-weight: 500;
+}
+
+.box pre3 pre{
+    font-family: KaiTi;
+    font-style: initial;
+    font-weight: 500;
+}
+
+.box .boxx{
+    border: 5px dotted black;
+    border-radius: 35px;
+    margin:20px 500px 20px 0px;
+    padding: 10px;
+}
+
+.box .boxx pre5{
+    font-family: KaiTi;
+}
+
+.box merge {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
 .box per6{
     font-family: KaiTi;
 }
