@@ -1,24 +1,18 @@
 .body {
     color:#555555;
     line-height:1.5em;
+    transition: all 1s;
 }
 
 
 .box{
-    background-color:antiquewhite;
+    background-color:white;
+    color: black;
     font-family:"Andale Mono", monospace;
     font-size:18px;
+    transition: all 1.5s;
 }
 
-.limite {
-    width: 100%;
-    margin: auto;
-}
-
-.box day {
-    text-align: center;
-    font-family: KaiTi;
-}
 .box h1 {
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
@@ -26,28 +20,11 @@
     font-style: italic;
     /* text-decoration: underline; */
 }
+
 .box pre1 {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: KaiTi;
     font-weight: 700;
     font-style: italic;
-}
-
-.box pre2 {
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 700;
-    font-style: italic;
-}
-
-.box pre3{
-    font-family: KaiTi;
-    font-style: initial;
-    font-weight: 500;
-}
-
-.box pre3 pre{
-    font-family: KaiTi;
-    font-style: initial;
-    font-weight: 500;
 }
 
 .box .boxx{
@@ -57,17 +34,54 @@
     padding: 10px;
 }
 
-.box .boxx pre5{
-    font-family: KaiTi;
-    position:static;
+.box .boxx1{
+    border: 5px dotted black;
+    border-radius: 35px;
+    margin:20px 500px 20px 0px;
+    padding: 10px;
 }
 
-.box merge {
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 700;
-    font-style: italic;
+.box .boxx2{
+    border: 5px dotted black;
+    border-radius: 35px;
+    margin:20px 500px 20px 0px;
+    padding: 10px;
 }
 
-.box pre6{
+.box pre5{
     font-family: KaiTi;
+}
+
+.box .switch {
+    position: absolute;
+    top: 100px;
+    right: 170px;
+    width: 80px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 3s;
+}
+
+.box .switch .circle{
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 28px;
+    height: 28px;
+    background-color: black;
+    border-radius: 50%;
+    transition: all 1s;
+}
+
+.blackCircle {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: greenyellow;
+    transition: all 1s;
 }
