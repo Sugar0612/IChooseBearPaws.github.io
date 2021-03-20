@@ -6,7 +6,7 @@
 
 
 .box{
-    background-color:white;
+    background-color:rgb(240,230,140);
     color: black;
     font-family:"Andale Mono", monospace;
     font-size:18px;
@@ -24,12 +24,38 @@
 .box h1 {
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
-    font-weight: 800;
+    font-weight: 10000;
     font-style: italic;
-    /* text-decoration: underline; */
+}
+
+.base {
+    -webkit-text-stroke: rgb(123,104,238)  2px;
+    color: transparent;
+}
+
+.high {
+    position: absolute;
+    color: rgb(65,105,225);
+    animation: move 3s ease-in-out infinite;
+    top: 0px;
+    left: 398px;
+}
+
+
+@keyframes move{
+    0%{
+        clip-path: polygon(0% 62%, 14% 55%, 24% 51%, 32% 51%, 41% 56%, 50% 59%, 60% 59%, 69% 55%, 76% 49%, 84% 48%, 93% 50%, 100% 54%, 100% 100%, 0 100%);
+    }
+    50%{
+        clip-path: polygon(0% 62%, 10% 62%, 23% 68%, 36% 68%, 44% 64%, 50% 59%, 59% 54%, 67% 55%, 74% 59%, 86% 62%, 94% 61%, 100% 54%, 100% 100%, 0 100%);
+    }
+100%{
+        clip-path: polygon(0% 62%, 14% 55%, 24% 51%, 32% 51%, 41% 56%, 50% 59%, 60% 59%, 69% 55%, 76% 49%, 84% 48%, 93% 50%, 100% 54%, 100% 100%, 0 100%);
+    }
 }
 
 .box pre1 {
+    position: relative;
     font-family: KaiTi;
     font-weight: 700;
     font-style: italic;
