@@ -20,7 +20,7 @@ circle_.addEventListener('click', function() {
         this.className = 'circle';
         flag = 1;
         switch_.style.border = '2px solid black';
-        box.style.backgroundColor = 'white';
+        box.style.backgroundColor = 'rgb(240,230,140)';
         box.style.color = 'black'
         boxx.style.border = '5px dotted black';
         boxx1.style.border = '5px dotted black';
