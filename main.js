@@ -23,7 +23,7 @@ circle_.addEventListener('click', function() {
         box.style.backgroundColor = 'white';
         box.style.color = 'black'
         boxx.style.border = '5px dotted black';
-        boxx1.style.border = '5px dotted white';
-        boxx2.style.border = '5px dotted white';
+        boxx1.style.border = '5px dotted black';
+        boxx2.style.border = '5px dotted black';
     }
 });
