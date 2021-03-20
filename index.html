@@ -5,18 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-<div class="limite">
-<div class="box">
+
+<div class="box" id = "boxid">
 	<title>My algorithmic learning home page! <br /> </title>
 </head>
     <h1>Welcome to my algorithmic learning home page!</h1>
-<body>
+
+    <div class = "switch"> 
+        <div class = "circle" id = "round"> </div>
+    </div>
+
+<body id = "body">
 <pre1>我的Github : <a href = "https://github.com/IChooseBearPaws/" target = "_blank"> My Github </a></pre1><br />
-<pre2>我的LeetCode : <a href = "https://leetcode-cn.com/u/allac_1/" target = "_blank"> My Leetcode </a></pre2> <br /><br />
-<day>  2020 年 12 月 10 日</day> <br />
-<merge>Merge sort (Divide and conquer algorithm) </merge><br />
-<pre6>归并排序 动画展示: <a href = "https://www.bilibili.com/video/BV1AJ41167VK?from=search&seid=2883332805467242330/" target = "_blank">访问动画</a><br /></pre6>
-<div class="boxx">
+<pre1>我的LeetCode : <a href = "https://leetcode-cn.com/u/allac_1/" target = "_blank"> My Leetcode </a></pre1> <br /><br />
+<pre5>  2020 年 12 月 10 日</pre5> <br />
+<pre1>Merge sort (Divide and conquer algorithm)</pre1><br />
+<pre5>归并排序 动画展示: <a href = "https://www.bilibili.com/video/BV1AJ41167VK?from=search&seid=2883332805467242330/" target = "_blank">访问动画</a><br /></pre5>
+<div class="boxx" id = "boxxid">
 <pre5>代码: </pre5>
     <strong>#pragma once
     template &lt;class T&gt;
@@ -39,29 +44,30 @@
         for (int i = left, i &lt;= right; ++i) arr[i] = ret[index_++];
     }</strong><pre>
     </div>
-<pre3>
+<pre5>
 原理: <br />1.利用分治算法, 将数组 arr[] 形成两个序列 arr_1(n / 2) 和 arr_2(n / 2)一直递归分解, 直到每个序列只包含一个 / 两个元素<br />
        	2.形成两个数组a[], b[], 对两个数组的第一个元素进行比较, 较小的放到临时创建的数组 buff[] 中, 当其中一个数组 a[] / b[] 已经将所有元素放入了 buff[]中,
           那么将剩下没有放完的数组 (b[] / a[]) 的剩余元素依次放进 buff[] 数组中去.<br />
 	 3.重复第二步 直到排序完毕.<br />
-    <pre>算法分析:
+     <br />
+    算法分析: <br />
 	   假设n > 1 : 时间是T(n) 那么两个就是 2T(2 / n) 合并算法时间是 O(n)   n = 1 : O(1).
 	   根据主定理 : T(n) = kT(n / m) + f(n)中, f(n) = n ^ d, d >= 0
-	   则 时间复杂度是 O(nlogn).(出自视频 <a href = "https://www.bilibili.com/video/BV1GT4y1G75V/" target = "_blank">归并视频及时间复杂度</a></pre>
+	   则 时间复杂度是 O(nlogn).(出自视频 <a href = "https://www.bilibili.com/video/BV1GT4y1G75V/" target = "_blank">归并视频及时间复杂度</a>
 
-<pre>总结:   归并排序是一种非就地排序，将需要与待排序序列一样多的辅助空间。在使用它对两个己有序的序列归并，将有无比的优势。
-	其时间复杂度无论是在最好情况下还是在最坏情况下均是O(nlog2n).
-	对数据的有序性不敏感。若数据节点数据量大，那将不适合。
-	但可改造成索引操作，效果将非常出色。(出CSDN @会飞的鱼_fly <a href = "https://blog.csdn.net/u011244839/article/details/69959943/" target = "_blank"> emragesort优点 </a> <br /></pre>
-</pre3>
-<pre6> 2021 年 1 月 17 日 </pre6> <br />
-<pre6>//  Union Find <br />
+    总结:   归并排序是一种非就地排序，将需要与待排序序列一样多的辅助空间。在使用它对两个己有序的序列归并，将有无比的优势<br />
+	其时间复杂度无论是在最好情况下还是在最坏情况下均是O(nlog2n). 对数据的有序性不敏感。若数据节点数据量大，那将不适合。<br />
+	但可改造成索引操作，效果将非常出色。(出CSDN @会飞的鱼_fly <a href = "https://blog.csdn.net/u011244839/article/details/69959943/" target = "_blank"> emragesort优点 </a> <br />
+</pre5> <br />
+<pre5> 2021 年 1 月 17 日 </pre5> <br />
+<pre1>Union Find </pre1> <br />
+<pre5>
 //并查集动画 :  <a href = "https://www.bilibili.com/video/BV1yE411u7FD?p=21" target = "_blank"> 并查集动画 </a><br />
 //并查集讲解:   <a href = "https://www.bilibili.com/video/BV1qK411J7J6?from=search&seid=14834253158345534002" target = "_blank"> 并查集教学 </a> <br />
 // 并查集是 用于关于图的两个结点连通性问题 一个很经典的一个解法
-// 代码可读性高, 时间复杂度只有 O(1), 空间复杂度 O(n); </pre6>
+// 代码可读性高, 时间复杂度只有 O(1), 空间复杂度 O(n); </pre5>
 <strong><pre>
-    <div class="boxx">
+    <div class="boxx1">
     class UF {
     private:
         vector&lt;int> par;
@@ -89,19 +95,20 @@
             }
         }
     };</strong> </div>
-<pre6>
+<pre5>
 //以上就是 关于并查集 Union Find 的基本模板
 
 //关于 Union Find 例题 (来自于 Leetcode 684 冗余连接(mid)) <a href = "https://leetcode-cn.com/classic/problems/redundant-connection/description/" target = "_blank"> 冗余连接 </a>
 	//输入一个图，该图由一个有着N个节点 (节点值不重复1, 2, ..., N) 的树及一条附加的边构成。附加的边的两个顶点包含在1到N中间，这条附加的边不属于树中已存在的边。
 	//结果图是一个以边组成的二维数组。每一个边的元素是一对[u, v] ，满足 u &lt; v，表示连接顶点u 和v的无向图的边。
 	//返回一条可以删去的边，使得结果图是一个有着N个节点的树。如果有多个答案，则返回二维数组中最后出现的边。答案边[u, v] 应满足相同的格式 u &lt; v。
-</pre6>
+</pre5>
 
-<pre6>2021 年 2 月 17 日</pre6>
-<pre6>字典树教学: <a href = "https://www.bilibili.com/video/BV1Az4y1S7c7?from=search&seid=7439230436454907529" target="_blank"> 字典树 </a> <br/>
-字典树模板</pre6>
-<div class="boxx">
+<pre5>2021 年 2 月 17 日</pre5>
+<pre1>wordTrie </pre1>
+<pre5>字典树教学: <a href = "https://www.bilibili.com/video/BV1Az4y1S7c7?from=search&seid=7439230436454907529" target="_blank"> 字典树 </a>
+字典树模板</pre5>
+<div class="boxx2">
 <strong>  class Trie {
     public:
         /** Initialize your data structure here. */
@@ -151,7 +158,7 @@
         }
         std::unique_ptr&lt;TrieNode&gt; root_;  //智能指针 可以自动析构
     };</pre> </strong> </div>
-    </div>
 </div>
 </body>
+<script src = "./main.js"> </script>
 </html>
