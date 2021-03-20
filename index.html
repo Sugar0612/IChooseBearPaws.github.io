@@ -18,6 +18,7 @@
 <body id = "body">
 <pre1>我的Github : <a href = "https://github.com/IChooseBearPaws/" target = "_blank"> My Github </a></pre1><br />
 <pre1>我的LeetCode : <a href = "https://leetcode-cn.com/u/allac_1/" target = "_blank"> My Leetcode </a></pre1> <br /><br />
+<dark> 夜间模式 </dark> <br />
 <pre5>  2020 年 12 月 10 日</pre5> <br />
 <pre1>Merge sort (Divide and conquer algorithm)</pre1><br />
 <pre5>归并排序 动画展示: <a href = "https://www.bilibili.com/video/BV1AJ41167VK?from=search&seid=2883332805467242330/" target = "_blank">访问动画</a><br /></pre5>
@@ -29,8 +30,8 @@
     void Meragesort(T * arr, int left, int right) {
         if (left == righ) return;
         int mid = (left + right) / 2;
-        Meragesort(arr, left, mid);       // 左排序
-        Meragesort(arr, mid + 1, right); //右排序 <br />
+        Meragesort(arr, left, mid);   
+        Meragesort(arr, mid + 1, right); <br />
         int ret[right - left + 1];
         int begin = left, end = mid + 1;
         int index = 0;
@@ -81,12 +82,6 @@
         int find(int x) {
             return par[x] = x == par[x] ? x : find(par[x]);
         }
-
-        // 对于 union find的 find函数 最初的写法 有 return x == par[x] ? x : find(par[x]); 
-           如果是这样查询 那么最坏的结果是查询一个链表 
-        // 他的时间复杂度将会是 O(n), 而 如果写成 return par[x] = x == par[x] ? x : find(par[x]); 
-           那么 他将变成 一棵深度为二的一棵树, 
-        // 那么 当第二次查询的时候 他的时间复杂度 可以降到 O(1)
 
         void merge(int x, int y) {
             int fx = find(x), fy = find(y);
@@ -156,7 +151,7 @@
             }
             return p;
         }
-        std::unique_ptr&lt;TrieNode&gt; root_;  //智能指针 可以自动析构
+        std::unique_ptr&lt;TrieNode&gt; root_;
     };</pre> </strong> </div>
 </div>
 </body>
